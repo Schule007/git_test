@@ -1,0 +1,83 @@
+Part 0: Setup
+sudo apt-get install git
+
+Part 1: Test on git branching and commit
+
+Clone the created repository in part 0 to your PC
+git clone git@github.com:Schule007/git-test.git
+
+Create one local branch name feature-1 from main branch
+git checkout -b feature-1
+
+Add any file (python script or text file) and make a commit with good message
+
+git add tasks.py
+git commit -m " tasks.py"
+Add another file and make another commit
+
+git add 1.png
+git commit -m "added 1.png"
+
+Push feature-1 to remote
+git remote set-origin <url>
+git push origin feature-1
+
+Part 2: Test on git merge
+
+Create local branch name feature-2 from main branch
+git checkout -b feature-2
+Create arbitrarily 2 commits
+
+git add 2.png
+git commit -m "2.png"
+git add 3.png
+git commit -m "3.png"
+
+Merge the remote feature-1 branch into feature-2 local branch
+git checkout feature-2
+git merge feature-1
+
+Push feature-2 to remote
+git push -u origin feature-2
+
+On GitHub page, in feature-2 branch, directly change content of README.md file and make a commit
+
+Merge the remote feature-2 branch to local feature-2 branch
+
+git fetch origin feature-2
+git merge origin/feature-2
+
+Part 3: Test on git rebase
+
+Create local branch name feature-3 from main branch
+git checkout -b feature-3
+
+Create 2 commits
+git add 3.png
+git add 4.png
+git commit -m "2 files"
+
+Push feature-3 to remote
+git push -u origin feature-3
+
+Rebase branch feature-3 on feature-1 and at the same time, squash latest 2 commits into 1
+git rebase feature-1 -i
+
+Force push local feature-3 branch to remote
+git push --force
+
+Part 4: Test on git cherry pick
+
+Create local branch name feature-4 from main branch
+
+Create 2 commits
+
+Cherry pick any commit of feature-1 branch
+git cherry-pick 6ee2185
+
+Push feature-4 to remote
+git push -u origin feature-4
+
+Part 5: Create a PR
+
+Read about Github Flow and make a PR following it.
